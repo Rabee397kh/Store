@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Store.Screens.Product;
+using Store.Screens.Users;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,23 @@ namespace Store
         private void Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewUser addNewUser = new AddNewUser();
+            addNewUser.Show();
+        }
+
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewProduct addNewProduct = new AddNewProduct();
+            addNewProduct.Show();
         }
     }
 }
