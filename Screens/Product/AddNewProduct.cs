@@ -21,8 +21,23 @@ namespace Store.Screens.Product
             InitializeComponent();
         }
 
+        private void returnValToInitial()
+        {
+            productNameTxt.Text = "";
+            parcodeTxt.Text = "";
+            priceNu.Value = 1;
+            quantityNu.Value = 1;
+            noteTxt.Text = "";
+            pictureBox1.ImageLocation = "";
+            imgpath = "";
+        }
         private void addProductBtn_Click(object sender, EventArgs e)
         {
+            if(productNameTxt.Text == "" || priceNu.Value == 0 || quantityNu.Value == 0)
+            {
+                MessageBox.Show("Important field empty");
+                return;
+            }
             product newProduct = new product
             {
                 productname = productNameTxt.Text,
@@ -35,12 +50,18 @@ namespace Store.Screens.Product
             storeDB.products.Add(newProduct);
             storeDB.SaveChanges();
 
-            string newPath = $"{Environment.CurrentDirectory}\\images\\products\\{newProduct.productid}.png";
-            File.Copy(imgpath, newPath);
-            newProduct.img = newPath;
-            storeDB.SaveChanges();
+            if(imgpath != "")
+            {
+                string newPath = $"{Environment.CurrentDirectory}\\images\\products\\{newProduct.productid}.png";
+                File.Copy(imgpath, newPath);
+                newProduct.img = newPath;
+                storeDB.SaveChanges();
+            }
+            
 
             MessageBox.Show("Product Added");
+
+            returnValToInitial();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

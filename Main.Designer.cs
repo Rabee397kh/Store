@@ -126,6 +126,7 @@
             // 
             // addProductToolStripMenuItem
             // 
+            this.addProductToolStripMenuItem.Image = global::Store.Properties.Resources.add;
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
             this.addProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.addProductToolStripMenuItem.Text = "Add Product";

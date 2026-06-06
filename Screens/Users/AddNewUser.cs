@@ -39,12 +39,15 @@ namespace Store.Screens.Users
 
             storeDB.users.Add(newUser);
             storeDB.SaveChanges();
-            string newPath = Environment.CurrentDirectory + $"\\images\\users\\{newUser.userid}.png";
-            File.Copy(imgPath, newPath);
+            
+            if(imgPath != "")
+            {
+                string newPath = Environment.CurrentDirectory + $"\\images\\users\\{newUser.userid}.png";
+                File.Copy(imgPath, newPath);
 
-            newUser.img = newPath;
-            storeDB.SaveChanges();
-
+                newUser.img = newPath;
+                storeDB.SaveChanges();
+            }
 
             MessageBox.Show($"{usernameTxt.Text} is Added");
         }
@@ -59,6 +62,36 @@ namespace Store.Screens.Users
                 pictureBox1.ImageLocation = imgPath;
                 //MessageBox.Show(imgPath);
             }
+        }
+
+        private void passwordTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

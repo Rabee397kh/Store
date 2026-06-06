@@ -51,6 +51,7 @@
             this.label3.Size = new System.Drawing.Size(179, 28);
             this.label3.TabIndex = 11;
             this.label3.Text = "Add New User";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // passwordTxt
             // 
@@ -60,6 +61,7 @@
             this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(386, 30);
             this.passwordTxt.TabIndex = 9;
+            this.passwordTxt.TextChanged += new System.EventHandler(this.passwordTxt_TextChanged);
             // 
             // label2
             // 
@@ -72,6 +74,7 @@
             this.label2.Size = new System.Drawing.Size(98, 25);
             this.label2.TabIndex = 8;
             this.label2.Text = "Password";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // usernameTxt
             // 
@@ -80,6 +83,7 @@
             this.usernameTxt.Name = "usernameTxt";
             this.usernameTxt.Size = new System.Drawing.Size(386, 30);
             this.usernameTxt.TabIndex = 7;
+            this.usernameTxt.TextChanged += new System.EventHandler(this.usernameTxt_TextChanged);
             // 
             // label1
             // 
@@ -92,6 +96,7 @@
             this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "User Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label4
             // 
@@ -104,6 +109,7 @@
             this.label4.Size = new System.Drawing.Size(66, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "Image";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox1
             // 
