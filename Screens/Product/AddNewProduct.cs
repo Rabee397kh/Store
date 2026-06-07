@@ -38,14 +38,21 @@ namespace Store.Screens.Product
                 MessageBox.Show("Important field empty");
                 return;
             }
+
+            string noteContent = noteTxt.Text;
+            if(noteContent == "")
+            {
+                noteContent = null;
+            }
+
             product newProduct = new product
             {
                 productname = productNameTxt.Text,
                 productcode = parcodeTxt.Text,
                 price = priceNu.Value,
                 quantity = Convert.ToInt32(quantityNu.Value),
-                note = noteTxt.Text
-                
+                note = noteContent
+
             };
             storeDB.products.Add(newProduct);
             storeDB.SaveChanges();

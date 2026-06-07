@@ -51,11 +51,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(25, 274);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 16);
+            this.label4.Size = new System.Drawing.Size(62, 24);
             this.label4.TabIndex = 20;
             this.label4.Text = "Image";
             // 
@@ -75,47 +76,49 @@
             // parcodeTxt
             // 
             this.parcodeTxt.Location = new System.Drawing.Point(163, 175);
-            this.parcodeTxt.Margin = new System.Windows.Forms.Padding(6);
+            this.parcodeTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.parcodeTxt.Name = "parcodeTxt";
-            this.parcodeTxt.Size = new System.Drawing.Size(141, 22);
+            this.parcodeTxt.Size = new System.Drawing.Size(141, 23);
             this.parcodeTxt.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(25, 175);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.Size = new System.Drawing.Size(81, 24);
             this.label2.TabIndex = 16;
             this.label2.Text = "Parcode";
             // 
             // productNameTxt
             // 
             this.productNameTxt.Location = new System.Drawing.Point(163, 103);
-            this.productNameTxt.Margin = new System.Windows.Forms.Padding(6);
+            this.productNameTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.productNameTxt.Name = "productNameTxt";
-            this.productNameTxt.Size = new System.Drawing.Size(141, 22);
+            this.productNameTxt.Size = new System.Drawing.Size(141, 23);
             this.productNameTxt.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(25, 103);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.Size = new System.Drawing.Size(131, 24);
             this.label1.TabIndex = 14;
             this.label1.Text = "Product Name";
             // 
             // noteTxt
             // 
             this.noteTxt.Location = new System.Drawing.Point(681, 254);
-            this.noteTxt.Margin = new System.Windows.Forms.Padding(6);
+            this.noteTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.noteTxt.Multiline = true;
             this.noteTxt.Name = "noteTxt";
             this.noteTxt.PasswordChar = '*';
@@ -126,11 +129,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(578, 254);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 16);
+            this.label5.Size = new System.Drawing.Size(50, 24);
             this.label5.TabIndex = 24;
             this.label5.Text = "Note";
             // 
@@ -138,11 +142,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(578, 103);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 16);
+            this.label6.Size = new System.Drawing.Size(53, 24);
             this.label6.TabIndex = 22;
             this.label6.Text = "Price";
             // 
@@ -150,27 +155,58 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(578, 181);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 16);
+            this.label7.Size = new System.Drawing.Size(78, 24);
             this.label7.TabIndex = 26;
             this.label7.Text = "Quantity";
             // 
             // priceNu
             // 
-            this.priceNu.Location = new System.Drawing.Point(681, 97);
+            this.priceNu.Location = new System.Drawing.Point(681, 106);
+            this.priceNu.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.priceNu.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.priceNu.Name = "priceNu";
-            this.priceNu.Size = new System.Drawing.Size(141, 22);
+            this.priceNu.Size = new System.Drawing.Size(141, 23);
             this.priceNu.TabIndex = 28;
+            this.priceNu.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // quantityNu
             // 
-            this.quantityNu.Location = new System.Drawing.Point(681, 173);
+            this.quantityNu.Location = new System.Drawing.Point(681, 184);
+            this.quantityNu.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.quantityNu.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.quantityNu.Name = "quantityNu";
-            this.quantityNu.Size = new System.Drawing.Size(141, 22);
+            this.quantityNu.Size = new System.Drawing.Size(141, 23);
             this.quantityNu.TabIndex = 29;
+            this.quantityNu.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // pictureBox1
             // 
@@ -189,7 +225,7 @@
             this.addProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addProductBtn.Location = new System.Drawing.Point(434, 483);
-            this.addProductBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.addProductBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.addProductBtn.Name = "addProductBtn";
             this.addProductBtn.Size = new System.Drawing.Size(78, 81);
             this.addProductBtn.TabIndex = 18;
@@ -216,6 +252,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.productNameTxt);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AddNewProduct";
             this.Text = "AddNewProduct";
             ((System.ComponentModel.ISupportInitialize)(this.priceNu)).EndInit();

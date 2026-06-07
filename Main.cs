@@ -40,5 +40,11 @@ namespace Store
             AddNewProduct addNewProduct = new AddNewProduct();
             addNewProduct.Show();
         }
+
+        private void manageProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductList productList = new ProductList();
+            productList.Show();
+        }
     }
 }
