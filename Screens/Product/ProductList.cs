@@ -51,5 +51,13 @@ namespace Store.Screens.Product
             selected = comboBox1.Text;
             
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int productId = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            MessageBox.Show(productId.ToString());
+            ProductInfo productInfo = new ProductInfo(productId);
+            productInfo.Show();
+        }
     }
 }

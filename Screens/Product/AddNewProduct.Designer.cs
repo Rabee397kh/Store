@@ -76,7 +76,7 @@
             // parcodeTxt
             // 
             this.parcodeTxt.Location = new System.Drawing.Point(163, 175);
-            this.parcodeTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.parcodeTxt.Margin = new System.Windows.Forms.Padding(6);
             this.parcodeTxt.Name = "parcodeTxt";
             this.parcodeTxt.Size = new System.Drawing.Size(141, 23);
             this.parcodeTxt.TabIndex = 17;
@@ -97,7 +97,7 @@
             // productNameTxt
             // 
             this.productNameTxt.Location = new System.Drawing.Point(163, 103);
-            this.productNameTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.productNameTxt.Margin = new System.Windows.Forms.Padding(6);
             this.productNameTxt.Name = "productNameTxt";
             this.productNameTxt.Size = new System.Drawing.Size(141, 23);
             this.productNameTxt.TabIndex = 15;
@@ -118,7 +118,7 @@
             // noteTxt
             // 
             this.noteTxt.Location = new System.Drawing.Point(681, 254);
-            this.noteTxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.noteTxt.Margin = new System.Windows.Forms.Padding(6);
             this.noteTxt.Multiline = true;
             this.noteTxt.Name = "noteTxt";
             this.noteTxt.PasswordChar = '*';
@@ -211,6 +211,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(163, 254);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(269, 170);
@@ -225,7 +226,7 @@
             this.addProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addProductBtn.Location = new System.Drawing.Point(434, 483);
-            this.addProductBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.addProductBtn.Margin = new System.Windows.Forms.Padding(6);
             this.addProductBtn.Name = "addProductBtn";
             this.addProductBtn.Size = new System.Drawing.Size(78, 81);
             this.addProductBtn.TabIndex = 18;
