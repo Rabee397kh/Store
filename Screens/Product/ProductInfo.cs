@@ -22,7 +22,7 @@ namespace Store.Screens.Product
         {
             InitializeComponent();
             this.productid = productid;
-             prod = storeDB.products.Find(productid);
+             prod = storeDB.products.SingleOrDefault(p=> p.productid == this.productid);
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace Store.Screens.Product
             if (imgpath != "")
             {
                 string newpath = $"{Environment.CurrentDirectory}\\images\\products\\{prod.productid}.png";
-                File.Copy(imgpath, newpath);
+                File.Copy(imgpath, newpath,true);
                 prod.img = newpath;
             }
 

@@ -128,21 +128,21 @@
             // 
             this.addProductToolStripMenuItem.Image = global::Store.Properties.Resources.add;
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.addProductToolStripMenuItem.Text = "Add Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
             // manageProductToolStripMenuItem
             // 
             this.manageProductToolStripMenuItem.Name = "manageProductToolStripMenuItem";
-            this.manageProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.manageProductToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.manageProductToolStripMenuItem.Text = "Manage Product";
             this.manageProductToolStripMenuItem.Click += new System.EventHandler(this.manageProductToolStripMenuItem_Click);
             // 
             // listProductToolStripMenuItem
             // 
             this.listProductToolStripMenuItem.Name = "listProductToolStripMenuItem";
-            this.listProductToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.listProductToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.listProductToolStripMenuItem.Text = "List Product";
             // 
             // suppliersToolStripMenuItem
@@ -175,6 +175,7 @@
             this.button1.Size = new System.Drawing.Size(180, 114);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 

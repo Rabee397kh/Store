@@ -58,6 +58,24 @@ namespace Store.Screens.Product
             MessageBox.Show(productId.ToString());
             ProductInfo productInfo = new ProductInfo(productId);
             productInfo.Show();
+            LoadProducts();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(!(MessageBox.Show("are you sure","Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes))
+            {
+                return;
+            }
+            int productid =(int)dataGridView1.CurrentRow.Cells[0].Value;
+            if(productid != -1)
+            {
+                product pr = storeDB.products.Find( productid);
+                storeDB.products.Remove(pr);
+                storeDB.SaveChanges();
+                MessageBox.Show($"product :{productid} Deleted Succefully!");
+                LoadProducts();
+            }
         }
     }
 }

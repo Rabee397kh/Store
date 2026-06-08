@@ -46,5 +46,11 @@ namespace Store
             ProductList productList = new ProductList();
             productList.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProductList productList = new ProductList();
+            productList.Show();
+        }
     }
 }
