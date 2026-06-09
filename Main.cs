@@ -1,4 +1,5 @@
-﻿using Store.Screens.Product;
+﻿using Store.Screens.Customers;
+using Store.Screens.Product;
 using Store.Screens.Users;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,12 @@ namespace Store
         {
             ProductList productList = new ProductList();
             productList.Show();
+        }
+
+        private void manageClientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCustomers manageCustomers = new ManageCustomers();
+            manageCustomers.Show();
         }
     }
 }
