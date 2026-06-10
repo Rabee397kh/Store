@@ -108,6 +108,12 @@
     <Compile Include="Screens\Customers\ManageCustomers.Designer.cs">
       <DependentUpon>ManageCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\ProductSuppliers\ManageSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\ProductSuppliers\ManageSuppliers.Designer.cs">
+      <DependentUpon>ManageSuppliers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Product\AddNewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="Screens\Customers\ManageCustomers.resx">
       <DependentUpon>ManageCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\ProductSuppliers\ManageSuppliers.resx">
+      <DependentUpon>ManageSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Product\AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>

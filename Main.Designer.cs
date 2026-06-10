@@ -54,6 +54,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.manageSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,6 +158,8 @@
             // 
             // suppliersToolStripMenuItem
             // 
+            this.suppliersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageSuppliersToolStripMenuItem});
             this.suppliersToolStripMenuItem.Image = global::Store.Properties.Resources.supplier;
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
             this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
@@ -234,6 +237,7 @@
             this.button3.Size = new System.Drawing.Size(180, 114);
             this.button3.TabIndex = 5;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 
@@ -291,6 +295,13 @@
             this.button6.Size = new System.Drawing.Size(180, 114);
             this.button6.TabIndex = 7;
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // manageSuppliersToolStripMenuItem
+            // 
+            this.manageSuppliersToolStripMenuItem.Name = "manageSuppliersToolStripMenuItem";
+            this.manageSuppliersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.manageSuppliersToolStripMenuItem.Text = "Manage Suppliers";
+            this.manageSuppliersToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliersToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -351,5 +362,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ToolStripMenuItem manageClientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageSuppliersToolStripMenuItem;
     }
 }

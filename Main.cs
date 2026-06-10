@@ -1,5 +1,6 @@
 ﻿using Store.Screens.Customers;
 using Store.Screens.Product;
+using Store.Screens.ProductSuppliers;
 using Store.Screens.Users;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,18 @@ namespace Store
         {
             ManageCustomers manageCustomers = new ManageCustomers();
             manageCustomers.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ManageSuppliers manageSuppliers = new ManageSuppliers();
+            manageSuppliers.Show();
+        }
+
+        private void manageSuppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageSuppliers manageSuppliers = new ManageSuppliers();
+            manageSuppliers.Show();
         }
     }
 }
