@@ -34,6 +34,7 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.manageClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,13 @@
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.clientsToolStripMenuItem.Text = "Clients";
+            // 
+            // manageClientsToolStripMenuItem
+            // 
+            this.manageClientsToolStripMenuItem.Name = "manageClientsToolStripMenuItem";
+            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.manageClientsToolStripMenuItem.Text = "Manage Clients";
+            this.manageClientsToolStripMenuItem.Click += new System.EventHandler(this.manageClientsToolStripMenuItem_Click);
             // 
             // productsToolStripMenuItem
             // 
@@ -207,6 +214,7 @@
             this.button2.Size = new System.Drawing.Size(180, 114);
             this.button2.TabIndex = 3;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -283,13 +291,6 @@
             this.button6.Size = new System.Drawing.Size(180, 114);
             this.button6.TabIndex = 7;
             this.button6.UseVisualStyleBackColor = true;
-            // 
-            // manageClientsToolStripMenuItem
-            // 
-            this.manageClientsToolStripMenuItem.Name = "manageClientsToolStripMenuItem";
-            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.manageClientsToolStripMenuItem.Text = "Manage Clients";
-            this.manageClientsToolStripMenuItem.Click += new System.EventHandler(this.manageClientsToolStripMenuItem_Click);
             // 
             // Main
             // 

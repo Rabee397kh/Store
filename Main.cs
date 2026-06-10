@@ -59,5 +59,11 @@ namespace Store
             ManageCustomers manageCustomers = new ManageCustomers();
             manageCustomers.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ManageCustomers manageCustomers = new ManageCustomers();
+            manageCustomers.Show();
+        }
     }
 }

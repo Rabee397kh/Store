@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(45, 92);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -58,9 +58,10 @@
             // 
             // passwordTxt
             // 
-            this.passwordTxt.Location = new System.Drawing.Point(284, 217);
+            this.passwordTxt.Location = new System.Drawing.Point(283, 174);
             this.passwordTxt.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTxt.Name = "passwordTxt";
+            this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(259, 31);
             this.passwordTxt.TabIndex = 3;
             // 
@@ -68,8 +69,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(45, 226);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(45, 174);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 23);
@@ -82,7 +83,7 @@
             this.loginBtn.BackgroundImage = global::Store.Properties.Resources.loginpng;
             this.loginBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginBtn.Location = new System.Drawing.Point(284, 325);
+            this.loginBtn.Location = new System.Drawing.Point(283, 250);
             this.loginBtn.Margin = new System.Windows.Forms.Padding(4);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(176, 76);
@@ -95,7 +96,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(278, 23);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -107,9 +108,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(633, 495);
+            this.ClientSize = new System.Drawing.Size(633, 356);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTxt);

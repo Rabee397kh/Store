@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Store.Screens.Customers
     {
         storeDBEntities storeDB = new storeDBEntities();
         string imgPath = "";
+        string searchSelected = "";
         public ManageCustomers()
         {
             InitializeComponent();
@@ -120,7 +122,7 @@ namespace Store.Screens.Customers
                 cl.img = newPath;
             }
             storeDB.SaveChanges();
-            MessageBox.Show("Customer " + customerNameTxt.Text + "Updated Succefully!");
+            MessageBox.Show("Customer " + customerNameTxt.Text + " Updated Succefully!");
             _loadCustomers();
             _reset();
         }
@@ -156,10 +158,72 @@ namespace Store.Screens.Customers
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            searchSelected = comboBox1.Text;
+        }
+
+        private void addCustomerBtnFocus_Click(object sender, EventArgs e)
         {
             _reset();
             customerNameTxt.Focus();
+        }
+
+        private void customerSearchTxt_TextChanged(object sender, EventArgs e)
+        {
+ 
+            switch (searchSelected)
+            {
+                case "Customer Name":
+                    customerGrid.DataSource = storeDB.clients.Where(c => c.clientname.Contains(customerSearchTxt.Text)).ToList();
+                    break;
+                case "Address":
+                    customerGrid.DataSource = storeDB.clients.Where(c => c.clientaddress.Contains(customerSearchTxt.Text)).ToList();
+                    break;
+                default:
+                    break;
+            }
+                
+
+            
+        }
+
+        private void addCustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (customerNameTxt.Text == "" || addressTxt.Text == "" || phoneTxt.Text == "")
+            {
+                MessageBox.Show("Please Fill Important Information!");
+                return;
+            }
+            {
+
+            }
+            client cl = new client
+            {
+                clientname = customerNameTxt.Text,
+                clientaddress = addressTxt.Text,
+                clientemail = emailTxt.Text,
+                clientnumber = phoneTxt.Text,
+                note = noteTxt.Text,
+                company = companyTxt.Text,
+                isactive = yesRd.Checked == true ? true : false
+
+            };
+
+            storeDB.clients.Add(cl);
+            storeDB.SaveChanges();
+
+            
+            if(imgPath != "")
+            {
+                string newpath = $"{Environment.CurrentDirectory}\\images\\customers\\{cl.clientid}.png";
+                File.Copy(imgPath, newpath);
+                cl.img = newpath;
+                storeDB.SaveChanges();
+            }
+
+            MessageBox.Show("Client Added Successfully!");
+            _reset();
         }
     }
 }

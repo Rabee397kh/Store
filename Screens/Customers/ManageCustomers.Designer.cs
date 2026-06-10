@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.addCustomerBtnFocus = new System.Windows.Forms.Button();
             this.customersNums = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.customerSearchTxt = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.noRd = new System.Windows.Forms.RadioButton();
             this.editBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerImg)).BeginInit();
@@ -64,7 +64,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.addCustomerBtnFocus);
             this.panel1.Controls.Add(this.customersNums);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.customerSearchTxt);
@@ -77,30 +77,49 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // addCustomerBtnFocus
+            // 
+            this.addCustomerBtnFocus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.addCustomerBtnFocus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.addCustomerBtnFocus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addCustomerBtnFocus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCustomerBtnFocus.Location = new System.Drawing.Point(502, 25);
+            this.addCustomerBtnFocus.Margin = new System.Windows.Forms.Padding(6);
+            this.addCustomerBtnFocus.Name = "addCustomerBtnFocus";
+            this.addCustomerBtnFocus.Size = new System.Drawing.Size(203, 35);
+            this.addCustomerBtnFocus.TabIndex = 51;
+            this.addCustomerBtnFocus.Text = "Add new Customer";
+            this.addCustomerBtnFocus.UseVisualStyleBackColor = false;
+            this.addCustomerBtnFocus.Click += new System.EventHandler(this.addCustomerBtnFocus_Click);
+            // 
             // customersNums
             // 
             this.customersNums.AutoSize = true;
-            this.customersNums.Location = new System.Drawing.Point(147, 568);
+            this.customersNums.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customersNums.Location = new System.Drawing.Point(147, 559);
             this.customersNums.Name = "customersNums";
-            this.customersNums.Size = new System.Drawing.Size(0, 16);
+            this.customersNums.Size = new System.Drawing.Size(0, 25);
             this.customersNums.TabIndex = 12;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Customer Name"});
+            "Customer Name",
+            "Address"});
             this.comboBox1.Location = new System.Drawing.Point(18, 23);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(78, 24);
+            this.comboBox1.Size = new System.Drawing.Size(152, 24);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // customerSearchTxt
             // 
-            this.customerSearchTxt.Location = new System.Drawing.Point(147, 25);
+            this.customerSearchTxt.Location = new System.Drawing.Point(199, 25);
             this.customerSearchTxt.Name = "customerSearchTxt";
-            this.customerSearchTxt.Size = new System.Drawing.Size(140, 22);
+            this.customerSearchTxt.Size = new System.Drawing.Size(155, 22);
             this.customerSearchTxt.TabIndex = 10;
+            this.customerSearchTxt.TextChanged += new System.EventHandler(this.customerSearchTxt_TextChanged);
             // 
             // productsCountLbl
             // 
@@ -232,6 +251,7 @@
             this.addCustomerBtn.Size = new System.Drawing.Size(78, 81);
             this.addCustomerBtn.TabIndex = 34;
             this.addCustomerBtn.UseVisualStyleBackColor = false;
+            this.addCustomerBtn.Click += new System.EventHandler(this.addCustomerBtn_Click);
             // 
             // phoneTxt
             // 
@@ -379,21 +399,6 @@
             this.deleteBtn.UseVisualStyleBackColor = false;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(502, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 35);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "Add new Customer";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -463,6 +468,6 @@
         private System.Windows.Forms.RadioButton noRd;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addCustomerBtnFocus;
     }
 }
