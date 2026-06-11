@@ -23,6 +23,7 @@ namespace Store.Screens.Product
 
         private void LoadProducts()
         {
+            storeDBEntities storeDB = new storeDBEntities();
             dataGridView1.DataSource = storeDB.products.ToList();
             productsCountLbl.Text = storeDB.products.Count().ToString();
         }
@@ -57,7 +58,7 @@ namespace Store.Screens.Product
             int productId = (int)dataGridView1.CurrentRow.Cells[0].Value;
             MessageBox.Show(productId.ToString());
             ProductInfo productInfo = new ProductInfo(productId);
-            productInfo.Show();
+            productInfo.ShowDialog();
             LoadProducts();
         }
 

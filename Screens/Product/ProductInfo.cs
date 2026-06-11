@@ -22,9 +22,16 @@ namespace Store.Screens.Product
         {
             InitializeComponent();
             this.productid = productid;
-             prod = storeDB.products.SingleOrDefault(p=> p.productid == this.productid);
+            prod = storeDB.products.SingleOrDefault(p=> p.productid == this.productid);
+            _fillCategoryCombo();
         }
 
+        private void _fillCategoryCombo()
+        {
+            categoryCombo.DataSource = storeDB.categories.ToList();
+            categoryCombo.DisplayMember = "name";
+            categoryCombo.ValueMember = "id";
+        }
         private void editBtn_Click(object sender, EventArgs e)
         {
             if(productNameTxt.Text == "" || parcodeTxt.Text == "")
@@ -37,6 +44,7 @@ namespace Store.Screens.Product
             prod.price = priceNu.Value;
             prod.quantity= Convert.ToInt32(quantityNu.Value);
             prod.note = noteTxt.Text;
+            prod.categoryid = categoryCombo.SelectedIndex + 1;
 
             if (imgpath != "")
             {
@@ -66,7 +74,7 @@ namespace Store.Screens.Product
             priceNu.Value = prod.price;
             quantityNu.Value = prod.quantity;
             noteTxt.Text = prod.note;
-
+            categoryCombo.SelectedIndex = Convert.ToInt32(prod.categoryid -1);
             
         }
 
