@@ -8,7 +8,9 @@
         <EntityTypeShape EntityType="storeDBModel.client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="storeDBModel.product" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="storeDBModel.supplier" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="storeDBModel.user" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="storeDBModel.user" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="storeDBModel.category" Width="1.5" PointX="2.875" PointY="4" />
+        <EntityTypeShape EntityType="storeDBModel.sysdiagram" Width="1.5" PointX="6.875" PointY="2.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

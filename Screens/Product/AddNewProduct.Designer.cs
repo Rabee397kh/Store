@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.parcodeTxt = new System.Windows.Forms.TextBox();
@@ -42,9 +43,16 @@
             this.quantityNu = new System.Windows.Forms.NumericUpDown();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addProductBtn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.categoryCombo = new System.Windows.Forms.ComboBox();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.storeDBDataSet = new Store.storeDBDataSet();
+            this.categoriesTableAdapter = new Store.storeDBDataSetTableAdapters.categoriesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.priceNu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -117,7 +125,7 @@
             // 
             // noteTxt
             // 
-            this.noteTxt.Location = new System.Drawing.Point(681, 254);
+            this.noteTxt.Location = new System.Drawing.Point(681, 350);
             this.noteTxt.Margin = new System.Windows.Forms.Padding(6);
             this.noteTxt.Multiline = true;
             this.noteTxt.Name = "noteTxt";
@@ -131,7 +139,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(578, 254);
+            this.label5.Location = new System.Drawing.Point(578, 350);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 24);
@@ -233,12 +241,52 @@
             this.addProductBtn.UseVisualStyleBackColor = false;
             this.addProductBtn.Click += new System.EventHandler(this.addProductBtn_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(578, 254);
+            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 24);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Category";
+            // 
+            // categoryCombo
+            // 
+            this.categoryCombo.DataSource = this.categoriesBindingSource;
+            this.categoryCombo.DisplayMember = "name";
+            this.categoryCombo.FormattingEnabled = true;
+            this.categoryCombo.Location = new System.Drawing.Point(681, 256);
+            this.categoryCombo.Name = "categoryCombo";
+            this.categoryCombo.Size = new System.Drawing.Size(141, 24);
+            this.categoryCombo.TabIndex = 31;
+            this.categoryCombo.ValueMember = "id";
+            // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "categories";
+            this.categoriesBindingSource.DataSource = this.storeDBDataSet;
+            // 
+            // storeDBDataSet
+            // 
+            this.storeDBDataSet.DataSetName = "storeDBDataSet";
+            this.storeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriesTableAdapter
+            // 
+            this.categoriesTableAdapter.ClearBeforeFill = true;
+            // 
             // AddNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(921, 594);
+            this.Controls.Add(this.categoryCombo);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.quantityNu);
             this.Controls.Add(this.priceNu);
             this.Controls.Add(this.label7);
@@ -257,9 +305,12 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "AddNewProduct";
             this.Text = "AddNewProduct";
+            this.Load += new System.EventHandler(this.AddNewProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.priceNu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +332,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown priceNu;
         private System.Windows.Forms.NumericUpDown quantityNu;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox categoryCombo;
+        private storeDBDataSet storeDBDataSet;
+        private System.Windows.Forms.BindingSource categoriesBindingSource;
+        private storeDBDataSetTableAdapters.categoriesTableAdapter categoriesTableAdapter;
     }
 }

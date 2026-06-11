@@ -33,7 +33,7 @@ namespace Store.Screens.Product
         }
         private void addProductBtn_Click(object sender, EventArgs e)
         {
-            if(productNameTxt.Text == "" || priceNu.Value == 0 || quantityNu.Value == 0)
+            if(productNameTxt.Text == "" || priceNu.Value == 0 || quantityNu.Value == 0 || categoryCombo.Text == "")
             {
                 MessageBox.Show("Important field empty");
                 return;
@@ -51,7 +51,8 @@ namespace Store.Screens.Product
                 productcode = parcodeTxt.Text,
                 price = priceNu.Value,
                 quantity = Convert.ToInt32(quantityNu.Value),
-                note = noteContent
+                note = noteContent,
+                categoryid = categoryCombo.SelectedIndex + 1
 
             };
             storeDB.products.Add(newProduct);
@@ -80,6 +81,13 @@ namespace Store.Screens.Product
                 imgpath = fileDialog.FileName;
                 pictureBox1.ImageLocation = imgpath;
             }
+
+        }
+
+        private void AddNewProduct_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'storeDBDataSet.categories' table. You can move, or remove it, as needed.
+            this.categoriesTableAdapter.Fill(this.storeDBDataSet.categories);
 
         }
     }

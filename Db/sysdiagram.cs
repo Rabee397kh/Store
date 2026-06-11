@@ -12,15 +12,12 @@ namespace Store.Db
     using System;
     using System.Collections.Generic;
     
-    public partial class product
+    public partial class sysdiagram
     {
-        public int productid { get; set; }
-        public string productname { get; set; }
-        public string productcode { get; set; }
-        public decimal price { get; set; }
-        public int quantity { get; set; }
-        public string note { get; set; }
-        public string img { get; set; }
-        public Nullable<int> categoryid { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

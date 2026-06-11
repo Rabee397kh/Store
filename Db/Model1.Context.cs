@@ -29,5 +29,7 @@ namespace Store.Db
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<category> categories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Store.Screens.Customers
         storeDBEntities storeDB = new storeDBEntities();
         string imgPath = "";
         string searchSelected = "";
+        int clientid = 0;
         public ManageCustomers()
         {
             InitializeComponent();
@@ -90,17 +91,22 @@ namespace Store.Screens.Customers
         }
         private void customerGrid_SelectionChanged(object sender, EventArgs e)
         {
-           int customerId = (int)customerGrid.CurrentRow.Cells[0].Value;
-           client cl = storeDB.clients.Find(customerId);
-           _fillCustomer(customerId);
+           clientid = (int)customerGrid.CurrentRow.Cells[0].Value;
+           client cl = storeDB.clients.Find(clientid);
+           _fillCustomer(clientid);
             label3.Text = "Edit Customer";
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            int customerId = (int)customerGrid.CurrentRow.Cells[0].Value;
-            client cl = storeDB.clients.Find(customerId);
+            //int customerId = (int)customerGrid.CurrentRow.Cells[0].Value;
+            client cl = storeDB.clients.Find(clientid);
 
+            if(storeDB.clients.Where(c=> c.clientnumber == phoneTxt.Text && c.clientid != clientid).Count() > 0)
+            {
+                MessageBox.Show("Phone number belong to another client!");
+                return;
+            }
             cl.clientname = customerNameTxt.Text;
             cl.clientemail = emailTxt.Text;
             cl.clientaddress = addressTxt.Text;
@@ -194,10 +200,12 @@ namespace Store.Screens.Customers
             {
                 MessageBox.Show("Please Fill Important Information!");
                 return;
-            }
+            }else if(storeDB.clients.Where(c=> c.clientnumber == phoneTxt.Text).Count() > 0)
             {
-
+                MessageBox.Show("Phone number belong to another user!");
+                return;
             }
+            
             client cl = new client
             {
                 clientname = customerNameTxt.Text,
@@ -224,6 +232,7 @@ namespace Store.Screens.Customers
 
             MessageBox.Show("Client Added Successfully!");
             _reset();
+            _loadCustomers();
         }
     }
 }
