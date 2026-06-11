@@ -38,6 +38,7 @@
             this.productsCountLbl = new System.Windows.Forms.Label();
             this.productSearchTxt = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.categoryCombo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +75,7 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 52);
             // 
             // editToolStripMenuItem
             // 
@@ -86,7 +87,7 @@
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -127,12 +128,22 @@
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
+            // categoryCombo
+            // 
+            this.categoryCombo.FormattingEnabled = true;
+            this.categoryCombo.Location = new System.Drawing.Point(317, 108);
+            this.categoryCombo.Name = "categoryCombo";
+            this.categoryCombo.Size = new System.Drawing.Size(121, 24);
+            this.categoryCombo.TabIndex = 7;
+            this.categoryCombo.SelectedIndexChanged += new System.EventHandler(this.categoryCombo_SelectedIndexChanged);
+            // 
             // ProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1057, 625);
+            this.Controls.Add(this.categoryCombo);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.productSearchTxt);
             this.Controls.Add(this.productsCountLbl);
@@ -160,5 +171,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ComboBox categoryCombo;
     }
 }

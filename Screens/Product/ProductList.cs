@@ -27,8 +27,16 @@ namespace Store.Screens.Product
             dataGridView1.DataSource = storeDB.products.ToList();
             productsCountLbl.Text = storeDB.products.Count().ToString();
         }
+
+        private void _fillCategoryCombo()
+        {
+            categoryCombo.DataSource = storeDB.categories.ToList();
+            categoryCombo.DisplayMember = "name";
+            categoryCombo.ValueMember = "id";
+        }
         private void ProductList_Load(object sender, EventArgs e)
         {
+            _fillCategoryCombo();
             LoadProducts();
         }
 
@@ -77,6 +85,11 @@ namespace Store.Screens.Product
                 MessageBox.Show($"product :{productid} Deleted Succefully!");
                 LoadProducts();
             }
+        }
+
+        private void categoryCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = storeDB.products.Where(p=> p.categoryid == categoryCombo.SelectedIndex+1).ToList();
         }
     }
 }
