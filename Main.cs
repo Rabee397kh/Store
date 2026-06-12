@@ -1,6 +1,7 @@
 ﻿using Store.Screens.Customers;
 using Store.Screens.Product;
 using Store.Screens.ProductSuppliers;
+using Store.Screens.SalesBill;
 using Store.Screens.Users;
 using System;
 using System.Collections.Generic;
@@ -77,6 +78,23 @@ namespace Store
         {
             ManageSuppliers manageSuppliers = new ManageSuppliers();
             manageSuppliers.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ManageSalesBill manageSalesBill = new ManageSalesBill();
+            manageSalesBill.Show();
+        }
+
+        private void salesBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageSalesBill manageSalesBill = new ManageSalesBill();
+            manageSalesBill.Show();
+        }
+
+        private void purchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

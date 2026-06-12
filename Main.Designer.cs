@@ -40,6 +40,7 @@
             this.manageProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
@@ -54,7 +55,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.manageSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,6 +167,13 @@
             this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.suppliersToolStripMenuItem.Text = "Suppliers";
             // 
+            // manageSuppliersToolStripMenuItem
+            // 
+            this.manageSuppliersToolStripMenuItem.Name = "manageSuppliersToolStripMenuItem";
+            this.manageSuppliersToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.manageSuppliersToolStripMenuItem.Text = "Manage Suppliers";
+            this.manageSuppliersToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliersToolStripMenuItem_Click);
+            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Image = global::Store.Properties.Resources.report;
@@ -174,6 +183,9 @@
             // 
             // billsToolStripMenuItem
             // 
+            this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salesBillToolStripMenuItem,
+            this.purchaseBillToolStripMenuItem});
             this.billsToolStripMenuItem.Image = global::Store.Properties.Resources.bill;
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
             this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
@@ -257,6 +269,7 @@
             this.button4.Size = new System.Drawing.Size(180, 114);
             this.button4.TabIndex = 11;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label5
             // 
@@ -296,12 +309,19 @@
             this.button6.TabIndex = 7;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // manageSuppliersToolStripMenuItem
+            // salesBillToolStripMenuItem
             // 
-            this.manageSuppliersToolStripMenuItem.Name = "manageSuppliersToolStripMenuItem";
-            this.manageSuppliersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.manageSuppliersToolStripMenuItem.Text = "Manage Suppliers";
-            this.manageSuppliersToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliersToolStripMenuItem_Click);
+            this.salesBillToolStripMenuItem.Name = "salesBillToolStripMenuItem";
+            this.salesBillToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.salesBillToolStripMenuItem.Text = "Sales Bill";
+            this.salesBillToolStripMenuItem.Click += new System.EventHandler(this.salesBillToolStripMenuItem_Click);
+            // 
+            // purchaseBillToolStripMenuItem
+            // 
+            this.purchaseBillToolStripMenuItem.Name = "purchaseBillToolStripMenuItem";
+            this.purchaseBillToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.purchaseBillToolStripMenuItem.Text = "Purchase Bill";
+            this.purchaseBillToolStripMenuItem.Click += new System.EventHandler(this.purchaseBillToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -363,5 +383,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ToolStripMenuItem manageClientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageSuppliersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem purchaseBillToolStripMenuItem;
     }
 }
