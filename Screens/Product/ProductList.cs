@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,17 +16,42 @@ namespace Store.Screens.Product
     {
         storeDBEntities storeDB = new storeDBEntities();
         string selected = "";
+        
         public ProductList()
         {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
+            
         }
 
         private void LoadProducts()
         {
-            storeDBEntities storeDB = new storeDBEntities();
-            dataGridView1.DataSource = storeDB.products.ToList();
-            productsCountLbl.Text = storeDB.products.Count().ToString();
+            //storeDBEntities storeDB = new storeDBEntities();
+            using (var context = new storeDBEntities())
+            {
+             var  result = (from s in context.products
+                              join e in context.categories
+                              on s.categoryid equals e.id
+                              select new
+                              {
+                                  Productid = s.productid,
+                                  Name = s.productname,
+                                  Price = s.price,
+                                  Category = e.name,
+                                  Parcode = s.productcode,
+                                  Quantity = s.quantity,
+                                  Note = s.note,
+                                  Image = s.img
+                              }).ToList();
+
+                
+                dataGridView1.DataSource = result;
+                productsCountLbl.Text = result.Count().ToString();
+
+            }
+
+            //dataGridView1.DataSource = storeDB.products.ToList();
+            //productsCountLbl.Text = storeDB.products.Count().ToString();
         }
 
         private void _fillCategoryCombo()
@@ -44,16 +70,59 @@ namespace Store.Screens.Product
 
         private void productNameTxt_TextChanged(object sender, EventArgs e)
         {
-            if(selected == "ProductName")
+            if (selected == "ProductName")
             {
-                dataGridView1.DataSource = storeDB.products.Where(p => p.productname.Contains(productSearchTxt.Text)).ToList();
-            }else if (selected == "ParCode")
-            {
-                dataGridView1.DataSource = storeDB.products.Where(p => p.productcode.Contains(productSearchTxt.Text)).ToList();
+                using (var context = new storeDBEntities())
+                {
+                    string usertext = productSearchTxt.Text;
+                    var result = (from s in context.products
+                                  join c in context.categories
+                                  on s.categoryid equals c.id
+                                  where s.productname.Contains(usertext)
+                                  select new
+                                  {
+                                      Productid = s.productid,
+                                      Name = s.productname,
+                                      Price = s.price,
+                                      Category = c.name,
+                                      Parcode = s.productcode,
+                                      Quantity = s.quantity,
+                                      Note = s.note,
+                                      Image = s.img
+                                  }).ToList();
+                    dataGridView1.DataSource = result;
+
+                }
+
+                //dataGridView1.DataSource = storeDB.products.Where(p => p.productname.Contains(productSearchTxt.Text)).ToList();
+                }else if (selected == "ParCode")
+                {
+                using (var context = new storeDBEntities())
+                {
+                    string usertext = productSearchTxt.Text;
+                    var result = (from s in context.products
+                                  join c in context.categories
+                                  on s.categoryid equals c.id
+                                  where s.productcode.Contains(usertext)
+                                  select new
+                                  {
+                                      Productid = s.productid,
+                                      Name = s.productname,
+                                      Price = s.price,
+                                      Category = c.name,
+                                      Parcode = s.productcode,
+                                      Quantity = s.quantity,
+                                      Note = s.note,
+                                      Image = s.img
+                                  }).ToList();
+                    dataGridView1.DataSource = result;
+
+                }
+                //dataGridView1.DataSource = storeDB.products.Where(p => p.productcode.Contains(productSearchTxt.Text)).ToList();
             }
-            
-            productsCountLbl.Text = dataGridView1.Rows.Count.ToString();
-        }
+
+                productsCountLbl.Text = dataGridView1.Rows.Count.ToString();
+            }
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -89,7 +158,29 @@ namespace Store.Screens.Product
 
         private void categoryCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = storeDB.products.Where(p=> p.categoryid == categoryCombo.SelectedIndex+1).ToList();
+            using (var context = new storeDBEntities())
+            {
+                //int userChoice = Convert.ToInt32(categoryCombo.ValueMember);
+                int userchoice = categoryCombo.SelectedIndex + 1;
+                var result = (from s in context.products
+                              join c in context.categories
+                              on s.categoryid equals c.id
+                              where c.id == userchoice
+                              select new
+                              {
+                                  Productid = s.productid,
+                                  Name = s.productname,
+                                  Price = s.price,
+                                  Category = c.name,
+                                  Parcode = s.productcode,
+                                  Quantity = s.quantity,
+                                  Note = s.note,
+                                  Image = s.img
+                              }).ToList();
+                dataGridView1.DataSource = result;
+                productsCountLbl.Text = result.Count.ToString();
+            }
+            //dataGridView1.DataSource = storeDB.products.Where(p=> p.categoryid == ).ToList();
         }
     }
 }
