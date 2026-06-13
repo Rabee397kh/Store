@@ -40,6 +40,12 @@
             this.productsListView = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.salesBillGridView = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pricae = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.image = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.salesBillGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +129,7 @@
             this.productsListView.SmallImageList = this.imageList1;
             this.productsListView.TabIndex = 8;
             this.productsListView.UseCompatibleStateImageBehavior = false;
+            this.productsListView.SelectedIndexChanged += new System.EventHandler(this.productsListView_SelectedIndexChanged);
             // 
             // imageList1
             // 
@@ -133,12 +140,63 @@
             // salesBillGridView
             // 
             this.salesBillGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesBillGridView.Location = new System.Drawing.Point(29, 251);
+            this.salesBillGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.name,
+            this.pricae,
+            this.quantity,
+            this.total,
+            this.image});
+            this.salesBillGridView.Location = new System.Drawing.Point(12, 251);
             this.salesBillGridView.Name = "salesBillGridView";
             this.salesBillGridView.RowHeadersWidth = 51;
-            this.salesBillGridView.RowTemplate.Height = 24;
+            this.salesBillGridView.RowTemplate.Height = 40;
             this.salesBillGridView.Size = new System.Drawing.Size(694, 440);
             this.salesBillGridView.TabIndex = 9;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 125;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 125;
+            // 
+            // pricae
+            // 
+            this.pricae.HeaderText = "price";
+            this.pricae.MinimumWidth = 6;
+            this.pricae.Name = "pricae";
+            this.pricae.Width = 125;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "quantity";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.Width = 125;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "total";
+            this.total.MinimumWidth = 6;
+            this.total.Name = "total";
+            this.total.Width = 125;
+            // 
+            // image
+            // 
+            this.image.HeaderText = "img";
+            this.image.Image = global::Store.Properties.Resources.main_background;
+            this.image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.image.MinimumWidth = 6;
+            this.image.Name = "image";
+            this.image.Width = 125;
             // 
             // ManageSalesBill
             // 
@@ -180,5 +238,11 @@
         private System.Windows.Forms.ListView productsListView;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.DataGridView salesBillGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pricae;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewImageColumn image;
     }
 }
