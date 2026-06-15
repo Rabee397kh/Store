@@ -1,4 +1,5 @@
 ﻿using Store.Db;
+using Store.Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,8 @@ namespace Store.Screens.SalesBill
     {
         storeDBEntities storeDB = new storeDBEntities();
         List<product> products;
-        List<product> productsView = new List<product>();
+        //List<product> productsView = new List<product>();
+        decimal tot = 0;
         public ManageSalesBill()
         {
             InitializeComponent();
@@ -64,41 +66,108 @@ namespace Store.Screens.SalesBill
             {
                 product pro = (product)productsListView.SelectedItems[0].Tag;
 
-
-                if (productsView.Contains(pro))
+                for (int i = 0; i < salesBillGridView.RowCount; i++)
                 {
-                    MessageBox.Show("item included");
-                }
-                else
-                {
-
-                    productsView.Add(pro);
-
-                    string imagePath = pro.img; // your source path
-                    Image img;
-
-                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                    if (salesBillGridView.Rows[i].Cells["id"].Value.ToString() == pro.productid.ToString())
                     {
-                        img = Image.FromFile(imagePath);
+                        //MessageBox.Show("item included");
+                        salesBillGridView.Rows[i].Cells["quantity"].Value = Convert.ToInt32(salesBillGridView.Rows[i].Cells["quantity"].Value.ToString()) + 1;
+                        salesBillGridView.Rows[i].Cells["total"].Value = Convert.ToInt32(salesBillGridView.Rows[i].Cells["quantity"].Value.ToString()) * Convert.ToInt32(salesBillGridView.Rows[i].Cells["price"].Value.ToString());
+                        tot = tot + Convert.ToDecimal(salesBillGridView.Rows[i].Cells["price"].Value.ToString());
+                        _updateTotal(tot);
+                        return;
                     }
-                    else
-                    {
-                        // fallback image (could be a blank bitmap or a placeholder file)
-                        Bitmap bitmap = new Bitmap(40,40);
-                        img = bitmap;
-                        // or new Bitmap(1,1) if you just want an empty image
-                    }
+                }    
 
-                    //dataGridView.Rows.Add(img, otherValue1, otherValue2);
+                        
+                        salesBillGridView.Rows.Add(pro.productid, pro.productname, pro.price, 1, pro.price * 1, pro.img == null? new Bitmap(40,40) : Image.FromFile(pro.img));
 
-                    salesBillGridView.Rows.Add(pro.productid, pro.productname, pro.price, 1, pro.price * 1, img);
-                }
-                    
-                
-
-                
-                //MessageBox.Show($"{pro.productname} {pro.productcode} {pro.price}");
+               tot = tot + pro.price;
+                _updateTotal(tot);
+                //MessageBox.Show(tot.ToString());
             }
+        }
+
+        
+
+        private void _updateTotal(decimal tot)
+        {
+
+            totalLB.Text = tot.ToString();
+            decimal netTotal = tot - discountNu.Value;
+            totalNetLb.Text = netTotal.ToString();
+        }
+
+        private void discountNu_ValueChanged(object sender, EventArgs e)
+        {
+            if(discountNu.Value > tot)
+            {
+                MessageBox.Show("discount isnt reasonale!");
+                return;
+            }
+            _updateTotal(tot);
+            
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (salesBillGridView.CurrentRow != null)
+            {
+                decimal total = Convert.ToDecimal(salesBillGridView.CurrentRow.Cells["total"].Value);
+                salesBillGridView.Rows.Remove(salesBillGridView.CurrentRow);
+                decimal newTotal = Convert.ToDecimal(totalLB.Text) - total;
+                _updateTotal(newTotal);
+            }
+            //MessageBox.Show(total.ToString());
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if(salesBillGridView.RowCount == 0)
+            {
+                MessageBox.Show("There is no Bill to save!!");
+                return;
+            }
+            int salesBillId = 0;
+            _saveSalesBillInfo(ref salesBillId);
+            _saveSalesBillDetailsInfo(salesBillId);
+            MessageBox.Show("Bill Saved Successfully!");
+        }
+
+        private void _saveSalesBillDetailsInfo(int salesbillid)
+        {
+            salesbilldetail salesbilldetail = new salesbilldetail();
+            for(int i = 0; i < salesBillGridView.RowCount; i++)
+            {
+                salesbilldetail.productid = (int)salesBillGridView.Rows[i].Cells["id"].Value;
+                salesbilldetail.salesbillid = salesbillid;
+                salesbilldetail.price = Convert.ToDouble(salesBillGridView.Rows[i].Cells["price"].Value);
+                salesbilldetail.quantity = Convert.ToInt32(salesBillGridView.Rows[i].Cells["quantity"].Value);
+                salesbilldetail.totalprice = Convert.ToInt32(salesBillGridView.Rows[i].Cells["total"].Value);
+                storeDB.salesbilldetails.Add(salesbilldetail);
+                storeDB.SaveChanges();
+            }
+        }
+
+        private void _saveSalesBillInfo(ref int salesbillid)
+        {
+            //MessageBox.Show( clientCombo.SelectedValue.ToString());
+            salesBill salesBill = new salesBill
+            {
+                customerid = (int)clientCombo.SelectedValue,
+                userid = UserSession.userid,
+                note = noteTxt.Text,
+                total = Convert.ToDouble(totalLB.Text),
+                discount = Convert.ToDouble(discountNu.Value),
+                netTotal = Convert.ToDouble(totalNetLb.Text),
+                billNumber = Convert.ToInt32(billNumTxt.Text),
+                date = dateTimePicker1.Value
+            };
+            
+            storeDB.salesBills.Add(salesBill);
+            storeDB.SaveChanges();
+            salesbillid = salesBill.id;
+            
         }
     }
 }

@@ -5,12 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="95bc5f17576a4074a1e9c4331b3a89bc" Name="Diagram1">
-        <EntityTypeShape EntityType="storeDBModel.client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="storeDBModel.product" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="storeDBModel.supplier" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="storeDBModel.user" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="storeDBModel.category" Width="1.5" PointX="2.875" PointY="4" />
-        <EntityTypeShape EntityType="storeDBModel.sysdiagram" Width="1.5" PointX="6.875" PointY="2.375" />
+        <EntityTypeShape EntityType="storeDBModel.client" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="storeDBModel.product" Width="1.5" PointX="4.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="storeDBModel.supplier" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="storeDBModel.user" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="storeDBModel.category" Width="1.5" PointX="6.375" PointY="2.25" />
+        <EntityTypeShape EntityType="storeDBModel.sysdiagram" Width="1.5" PointX="8.125" PointY="0.5" />
+        <EntityTypeShape EntityType="storeDBModel.salesBill" Width="1.5" PointX="2.75" PointY="3.75" />
+        <AssociationConnector Association="storeDBModel.FK_products_categories" />
+        <AssociationConnector Association="storeDBModel.FK_salesBill_clients" />
+        <AssociationConnector Association="storeDBModel.FK_salesBill_users" />
+        <EntityTypeShape EntityType="storeDBModel.salesbilldetail" Width="1.5" PointX="4.625" PointY="3.625" />
+        <AssociationConnector Association="storeDBModel.FK_salesbilldetails_salesBill" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,5 @@
 ﻿using Store.Db;
+using Store.Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Store
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         string username = "",password="";
         storeDBEntities storeDB = new storeDBEntities();
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -26,8 +27,10 @@ namespace Store
             username = usernameTxt.Text;
             password = passwordTxt.Text;
 
-            if (storeDB.users.Where((u => u.username == this.username && u.password == this.password)).Count() != 0)
-            {
+            var usr = storeDB.users.FirstOrDefault(u=> u.username == this.username && u.password == this.password);
+            if (usr != null) {
+                UserSession.userid = usr.userid;
+                UserSession.username = usr.username;
                 this.Close();
                 Thread thread = new Thread(openMain);
                 thread.SetApartmentState(ApartmentState.STA);

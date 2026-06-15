@@ -12,25 +12,27 @@ namespace Store.Db
     using System;
     using System.Collections.Generic;
     
-    public partial class client
+    public partial class salesBill
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public client()
+        public salesBill()
         {
-            this.salesBills = new HashSet<salesBill>();
+            this.salesbilldetails = new HashSet<salesbilldetail>();
         }
     
-        public int clientid { get; set; }
-        public string clientname { get; set; }
-        public string clientaddress { get; set; }
-        public string clientnumber { get; set; }
-        public string clientemail { get; set; }
+        public int id { get; set; }
+        public int customerid { get; set; }
+        public int userid { get; set; }
         public string note { get; set; }
-        public string company { get; set; }
-        public Nullable<bool> isactive { get; set; }
-        public string img { get; set; }
+        public double total { get; set; }
+        public double discount { get; set; }
+        public double netTotal { get; set; }
+        public int billNumber { get; set; }
+        public System.DateTime date { get; set; }
     
+        public virtual client client { get; set; }
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<salesBill> salesBills { get; set; }
+        public virtual ICollection<salesbilldetail> salesbilldetails { get; set; }
     }
 }

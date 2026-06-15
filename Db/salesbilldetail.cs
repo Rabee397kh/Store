@@ -12,17 +12,15 @@ namespace Store.Db
     using System;
     using System.Collections.Generic;
     
-    public partial class product
+    public partial class salesbilldetail
     {
+        public int id { get; set; }
         public int productid { get; set; }
-        public string productname { get; set; }
-        public string productcode { get; set; }
-        public decimal price { get; set; }
+        public int salesbillid { get; set; }
+        public double price { get; set; }
         public int quantity { get; set; }
-        public string note { get; set; }
-        public string img { get; set; }
-        public Nullable<int> categoryid { get; set; }
+        public decimal totalprice { get; set; }
     
-        public virtual category category { get; set; }
+        public virtual salesBill salesBill { get; set; }
     }
 }

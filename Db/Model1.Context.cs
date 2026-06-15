@@ -31,5 +31,7 @@ namespace Store.Db
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<category> categories { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<salesBill> salesBills { get; set; }
+        public virtual DbSet<salesbilldetail> salesbilldetails { get; set; }
     }
 }
