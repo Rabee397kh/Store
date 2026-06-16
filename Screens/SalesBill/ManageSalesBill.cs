@@ -128,6 +128,10 @@ namespace Store.Screens.SalesBill
                 MessageBox.Show("There is no Bill to save!!");
                 return;
             }
+            if(billNumTxt.Text == "" || clientCombo.Text == "")
+            {
+                MessageBox.Show("Important field empty!!");
+            }
             int salesBillId = 0;
             _saveSalesBillInfo(ref salesBillId);
             _saveSalesBillDetailsInfo(salesBillId);

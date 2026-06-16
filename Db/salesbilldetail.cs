@@ -22,5 +22,6 @@ namespace Store.Db
         public decimal totalprice { get; set; }
     
         public virtual salesBill salesBill { get; set; }
+        public virtual product product { get; set; }
     }
 }

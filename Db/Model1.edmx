@@ -109,6 +109,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_salesbilldetails_products">
+          <End Role="products" Type="Self.products" Multiplicity="1" />
+          <End Role="salesbilldetails" Type="Self.salesbilldetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="products">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="salesbilldetails">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_salesbilldetails_salesBill">
           <End Role="salesBill" Type="Self.salesBill" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -135,6 +147,10 @@
           <AssociationSet Name="FK_products_categories" Association="Self.FK_products_categories">
             <End Role="categories" EntitySet="categories" />
             <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesbilldetails_products" Association="Self.FK_salesbilldetails_products">
+            <End Role="products" EntitySet="products" />
+            <End Role="salesbilldetails" EntitySet="salesbilldetails" />
           </AssociationSet>
           <AssociationSet Name="FK_salesbilldetails_salesBill" Association="Self.FK_salesbilldetails_salesBill">
             <End Role="salesBill" EntitySet="salesBill" />
@@ -173,6 +189,7 @@
           <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="categoryid" Type="Int32" />
           <NavigationProperty Name="category" Relationship="storeDBModel.FK_products_categories" FromRole="product" ToRole="category" />
+          <NavigationProperty Name="salesbilldetails" Relationship="storeDBModel.FK_salesbilldetails_products" FromRole="product" ToRole="salesbilldetail" />
         </EntityType>
         <EntityType Name="supplier">
           <Key>
@@ -221,6 +238,10 @@
           <EntitySet Name="salesbilldetails" EntityType="storeDBModel.salesbilldetail" />
           <AssociationSet Name="FK_salesbilldetails_salesBill" Association="storeDBModel.FK_salesbilldetails_salesBill">
             <End Role="salesBill" EntitySet="salesBills" />
+            <End Role="salesbilldetail" EntitySet="salesbilldetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesbilldetails_products" Association="storeDBModel.FK_salesbilldetails_products">
+            <End Role="product" EntitySet="products" />
             <End Role="salesbilldetail" EntitySet="salesbilldetails" />
           </AssociationSet>
         </EntityContainer>
@@ -306,6 +327,7 @@
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="totalprice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="salesBill" Relationship="storeDBModel.FK_salesbilldetails_salesBill" FromRole="salesbilldetail" ToRole="salesBill" />
+          <NavigationProperty Name="product" Relationship="storeDBModel.FK_salesbilldetails_products" FromRole="salesbilldetail" ToRole="product" />
         </EntityType>
         <Association Name="FK_salesbilldetails_salesBill">
           <End Type="storeDBModel.salesBill" Role="salesBill" Multiplicity="1">
@@ -318,6 +340,18 @@
             </Principal>
             <Dependent Role="salesbilldetail">
               <PropertyRef Name="salesbillid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_salesbilldetails_products">
+          <End Type="storeDBModel.product" Role="product" Multiplicity="1" />
+          <End Type="storeDBModel.salesbilldetail" Role="salesbilldetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="salesbilldetail">
+              <PropertyRef Name="productid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

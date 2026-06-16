@@ -145,6 +145,12 @@
     <Compile Include="Screens\Product\ProductList.Designer.cs">
       <DependentUpon>ProductList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\SalesBill\ListSalesBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SalesBill\ListSalesBill.Designer.cs">
+      <DependentUpon>ListSalesBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\SalesBill\ManageSalesBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Product\ProductList.resx">
       <DependentUpon>ProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SalesBill\ListSalesBill.resx">
+      <DependentUpon>ListSalesBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\SalesBill\ManageSalesBill.resx">
       <DependentUpon>ManageSalesBill.cs</DependentUpon>

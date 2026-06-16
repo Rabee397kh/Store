@@ -96,5 +96,11 @@ namespace Store
         {
 
         }
+
+        private void salesBillListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListSalesBill listSalesBill = new ListSalesBill();
+            listSalesBill.Show();
+        }
     }
 }

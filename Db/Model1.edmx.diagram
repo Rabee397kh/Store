@@ -17,6 +17,7 @@
         <AssociationConnector Association="storeDBModel.FK_salesBill_users" />
         <EntityTypeShape EntityType="storeDBModel.salesbilldetail" Width="1.5" PointX="4.625" PointY="3.625" />
         <AssociationConnector Association="storeDBModel.FK_salesbilldetails_salesBill" />
+        <AssociationConnector Association="storeDBModel.FK_salesbilldetails_products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,6 +14,12 @@ namespace Store.Db
     
     public partial class product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public product()
+        {
+            this.salesbilldetails = new HashSet<salesbilldetail>();
+        }
+    
         public int productid { get; set; }
         public string productname { get; set; }
         public string productcode { get; set; }
@@ -24,5 +30,7 @@ namespace Store.Db
         public Nullable<int> categoryid { get; set; }
     
         public virtual category category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<salesbilldetail> salesbilldetails { get; set; }
     }
 }
